@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "backend": "nodemon src/index.js"
+    "server": "nodemon src/index.js",
+    "dev": "concurrently \"npm run server\" \"cd ../client/src && npm run client\""
   },
   "author": "Suhaib Ahmed Shaikh",
   "license": "ISC",
