@@ -8,6 +8,7 @@ const app = express();
 // configs
 import { PORT } from "./config/serverConfig.js";
 import connectDB from "./config/connectDB.js";
+import ApiRoutes from "./routes/routes.js";
 
 connectDB();
 
@@ -17,8 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // routes
+app.use("/api", ApiRoutes);
+
 app.get("/", (req, res) => {
-  res.send("Hello from Backend");
+  res.send("Hello from backend");
 });
 
 // listening on server
