@@ -8,6 +8,7 @@ export const globalErrorHandler = (err, req, res, next) => {
     statusCode,
     success: false,
     message,
-    data: process.env.NODE_ENV === "development" ? { stack: err.stack } : null,
+    data: null,
+    errors: err.errors || [],
   });
 };
