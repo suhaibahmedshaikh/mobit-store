@@ -1,0 +1,17 @@
+import { z } from "zod";
+
+export const addProductSchema = z.object({
+  name: z.string().min(3).trim(),
+  description: z.string().min(10).trim(),
+  price: z.number().positive(),
+  category: z.string(),
+  photos: z.array(
+    z.object({
+      public_id: z.string(),
+      secure_url: z.string().url(),
+    })
+  ),
+  stock: z.number().int().positive(),
+});
+
+export const updateProductSchema = addProductSchema.partial();
