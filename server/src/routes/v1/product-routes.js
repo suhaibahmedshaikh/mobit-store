@@ -1,4 +1,5 @@
 import express from "express";
+import { upload } from "../../middlewares/upload.js";
 import {
   addProduct,
   getAllProducts,
@@ -6,6 +7,7 @@ import {
   updateProduct,
   deleteProduct,
 } from "../../controllers/product-controller.js";
+import { uploadAndProcessPhotos } from "../../middlewares/uploadAndProcessPhotos.js";
 import {
   addProductSchema,
   updateProductSchema,
@@ -16,7 +18,12 @@ const router = express.Router();
 
 router
   .route("/")
-  .post(validateRequest(addProductSchema), addProduct)
+  .post(
+    upload.array("photos", 5),
+    uploadAndProcessPhotos,
+    validateRequest(addProductSchema),
+    addProduct
+  )
   .get(getAllProducts);
 
 router
