@@ -1,8 +1,8 @@
 import { Category } from "../models/category-model.js";
 
 export class CategoryRepository {
-  async addCategory(name) {
-    return await Category.create({ name });
+  async addCategory(data) {
+    return await Category.create(data);
   }
 
   async getAllCategories() {
@@ -17,12 +17,8 @@ export class CategoryRepository {
     return await Category.findById(categoryId);
   }
 
-  async updateCategory(categoryId, name) {
-    return await Category.findByIdAndUpdate(
-      categoryId,
-      { name },
-      { new: true }
-    );
+  async updateCategory(categoryId, data) {
+    return await Category.findByIdAndUpdate(categoryId, data, { new: true });
   }
 
   async deleteCategory(categoryId) {
