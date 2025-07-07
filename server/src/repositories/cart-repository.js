@@ -9,6 +9,10 @@ export class CartRepository {
     return await Cart.findOne({ user: userId }).populate("items.product");
   }
 
+  async saveCart(cart) {
+    return await cart.save();
+  }
+
   async removeItemFromCart(userId, productId) {
     return await Cart.findOneAndUpdate(
       { user: userId },
