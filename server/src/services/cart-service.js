@@ -60,8 +60,8 @@ export class CartService {
     return await this.repo.saveCart(cart);
   }
 
-  async removeItemFromCart(userId, data) {
-    const updatedCart = await this.repo.removeItemFromCart(userId, data);
+  async removeItemFromCart(userId, productId) {
+    const updatedCart = await this.repo.removeItemFromCart(userId, productId);
 
     if (!updatedCart) {
       throw new ApiError(404, "Cart not found");
