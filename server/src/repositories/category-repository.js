@@ -2,7 +2,8 @@ import { Category } from "../models/category-model.js";
 
 export class CategoryRepository {
   async addCategory(data) {
-    return await Category.create(data);
+    const category = new Category(data);
+    return await category.save();
   }
 
   async getAllCategories() {
