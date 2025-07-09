@@ -3,7 +3,7 @@ import { z } from "zod";
 export const addProductSchema = z.object({
   name: z.string().min(3).trim(),
   description: z.string().min(10).trim(),
-  price: z.number().positive(),
+  price: z.coerce.number().positive(),
   category: z.string(),
   photos: z.array(
     z.object({
@@ -11,7 +11,7 @@ export const addProductSchema = z.object({
       secure_url: z.string().url(),
     })
   ),
-  stock: z.number().int().positive(),
+  stock: z.coerce.number().int().positive(),
 });
 
 export const updateProductSchema = addProductSchema.partial();

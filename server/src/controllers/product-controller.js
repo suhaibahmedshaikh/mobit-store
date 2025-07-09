@@ -15,7 +15,7 @@ export const addProduct = asyncHandler(async (req, res) => {
 });
 
 export const getAllProducts = asyncHandler(async (req, res) => {
-  const products = await service.getAllProducts(req.query);
+  const products = await service.getAllProducts(req.query.category);
 
   return apiResponse(res, {
     statusCode: 200,
