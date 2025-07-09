@@ -47,9 +47,7 @@ export class CartService {
       throw new ApiError(404, "Cart not found");
     }
 
-    const item = cart.items.find(
-      (item) => item.product.toString() === data.productId.toString()
-    );
+    const item = cart.items.find((item) => item.product.equals(data.productId));
 
     if (!item) {
       throw new ApiError(404, "Item not in cart");

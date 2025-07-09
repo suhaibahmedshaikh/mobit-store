@@ -15,6 +15,12 @@ import { validateRequest } from "../../middlewares/validateRequest.js";
 
 const router = express.Router();
 
+// mock authentication
+router.use((req, res, next) => {
+  req.user = { id: "6722296027c4eb4d75f2dd7f" };
+  next();
+});
+
 router
   .route("/")
   .get(getCartByUser)
@@ -22,6 +28,6 @@ router
   .put(validateRequest(updateQtySchema), updateItemQuantity)
   .delete(validateRequest(removeItemSchema), removeItemFromCart);
 
-router.route("/clear", clearCart);
+router.route("/clear").delete(clearCart);
 
 export default router;
