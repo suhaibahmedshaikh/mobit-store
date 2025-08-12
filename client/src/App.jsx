@@ -9,7 +9,7 @@ import Checkout from "./pages/shop/Checkout";
 function App() {
   return (
     <>
-      <div>
+      <div className="w-full">
         <Navbar />
         <Routes>
           <Route path="/shop" element={<Home />} />
