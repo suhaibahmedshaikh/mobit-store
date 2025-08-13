@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const IconLink = ({ icon, to }) => {
   return (

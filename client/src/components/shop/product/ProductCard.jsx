@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
-export const ProductCard = ({ product }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className="relative border rounded-lg p-4 bg-muted shadow-sm hover:shadow-md transition-shadow duration-200">
       <Button
@@ -24,3 +24,5 @@ export const ProductCard = ({ product }) => {
     </div>
   );
 };
+
+export default ProductCard;
