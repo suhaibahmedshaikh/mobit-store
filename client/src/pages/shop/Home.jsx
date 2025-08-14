@@ -1,11 +1,30 @@
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 const Home = () => {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="w-full h-[400px] bg-gray-100 flex items-center justify-center">
-        <h1 className="text-3xl font-bold">Hero Banner</h1>
+      <section
+        className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url(https://placehold.jp/1280x720.png)" }}
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="relative z-10 text-center text-white space-y-4">
+          <h1 className="text-3xl md:text-5xl font-bold">
+            New Season Arrivals
+          </h1>
+          <p className="text-base md:text-lg">
+            Check out latest trends and offers
+          </p>
+          <Button
+            variant={"secondary"}
+            size={"lg"}
+            className="bg-white text-black hover:bg-gray-200 hover:scale-105 transform transition cursor-pointer"
+          >
+            Shop Now
+          </Button>
+        </div>
       </section>
 
       <Separator />
